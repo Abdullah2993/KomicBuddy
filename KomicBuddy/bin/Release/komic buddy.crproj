@@ -1,5 +1,0 @@
-<project outputDir="C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Release\Confused" baseDir="C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Release" xmlns="http://confuser.codeplex.com">
-  <rule pattern="true" inherit="false" />
-  <module path="sharpPDF.dll" />
-  <module path="KomicBuddy.exe" />
-</project>
