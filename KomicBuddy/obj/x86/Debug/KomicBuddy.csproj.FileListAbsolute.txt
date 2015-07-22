@@ -1,0 +1,26 @@
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\KomicBuddy.exe.config
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\KomicBuddy.exe
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\KomicBuddy.pdb
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\sharpPDF.dll
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.DownloadForm.resources
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.MainForm.resources
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.SettingsForm.resources
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.Properties.Resources.resources
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.exe
+C:\Documents and Settings\root\My Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.pdb
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\KomicBuddy.exe.config
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.exe
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.pdb
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\KomicBuddy.exe
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\KomicBuddy.pdb
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.csprojResolveAssemblyReference.cache
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.AboutForm.resources
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.DownloadForm.resources
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.MainForm.resources
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.SettingsForm.resources
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.Properties.Resources.resources
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\obj\x86\Debug\KomicBuddy.csproj.GenerateResource.Cache
+C:\Users\Abdullah\Documents\Visual Studio 2010\Projects\Komic Buddy\KomicBuddy\bin\Debug\sharpPDF.dll
