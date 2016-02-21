@@ -13,19 +13,19 @@ namespace KomicBuddy
             IsNew = isNew;
         }
 
-        public string Name { get; private set; }
-        public string Scanlated { get; private set; }
-        public string Date { get; private set; }
-        public string Link { get; private set; }
-        public bool IsNew { get; private set; }
+        public string Name { get; }
+        public string Scanlated { get; }
+        public string Date { get; }
+        public string Link { get; }
+        public bool IsNew { get; }
 
         public static explicit operator ListViewItem(Chapter chapter)
         {
             var item = new ListViewItem
-                {
-                    Tag = chapter,
-                    Text = chapter.Name + (chapter.IsNew ? "    new" : string.Empty)
-                };
+            {
+                Tag = chapter,
+                Text = chapter.Name + (chapter.IsNew ? "    new" : string.Empty)
+            };
             item.SubItems.Add(chapter.Scanlated);
             item.SubItems.Add(chapter.Date);
             item.SubItems.Add(chapter.Link);

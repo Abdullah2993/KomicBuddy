@@ -9,13 +9,13 @@ namespace KomicBuddy
     {
         public static Image Download(string url)
         {
-            byte[] buffer = DownloadBytes(url);
+            var buffer = DownloadBytes(url);
             return Image.FromStream(new MemoryStream(buffer));
         }
 
         public static void Download(string url, string path)
         {
-            byte[] buffer = DownloadBytes(url);
+            var buffer = DownloadBytes(url);
             using (var fileStream = new FileStream(path, FileMode.OpenOrCreate))
             {
                 fileStream.Write(buffer, 0, buffer.Length);
@@ -40,11 +40,11 @@ namespace KomicBuddy
 
         private static byte[] DownloadBytes(string url)
         {
-            HttpWebResponse response = GetResponse(url);
+            var response = GetResponse(url);
             var length = (int) response.ContentLength;
             var buffer = new byte[length];
-            int readIndex = 0;
-            using (Stream stream = response.GetResponseStream())
+            var readIndex = 0;
+            using (var stream = response.GetResponseStream())
             {
                 if (stream != null)
                 {
@@ -66,9 +66,9 @@ namespace KomicBuddy
 
         private static void DownloadEx(string url, byte[] buffer, int readIndex, int length)
         {
-            using (HttpWebResponse response = GetResponse(url, readIndex))
+            using (var response = GetResponse(url, readIndex))
             {
-                using (Stream stream = response.GetResponseStream())
+                using (var stream = response.GetResponseStream())
                 {
                     if (stream != null)
                     {

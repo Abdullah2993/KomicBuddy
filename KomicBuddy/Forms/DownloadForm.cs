@@ -14,18 +14,18 @@ namespace KomicBuddy
         private const string ProgressFormat = "{0}  - ({1}%)";
         private const string TotalRegex = @"<option value=""(?<pages>\d*?)"" >(?<pages>\1)</option></select>";
         private const string LinkRegex = @"(?<link>http://img.mangahit.com/manga/\d*?/\d*?/)\d*?\.jpg";
-
-        private int _pages;
+        private readonly string _directory;
         private string _link;
         private Thread _mainThread;
-        private readonly string _directory;
+
+        private int _pages;
 
 
         public DownloadForm(Chapter chapter)
         {
             InitializeComponent();
             CurrentChapter = chapter;
-            Tag = new ToolStripMenuItem {Text = string.Format(ProgressFormat, chapter.Name, 0),Tag = this};
+            Tag = new ToolStripMenuItem {Text = string.Format(ProgressFormat, chapter.Name, 0), Tag = this};
             _pages = 0;
             _link = string.Empty;
             _directory = Path.Combine(Profile.Settings.DownloadLocation, CurrentChapter.Name);
@@ -35,7 +35,7 @@ namespace KomicBuddy
             }
         }
 
-        public Chapter CurrentChapter { get;private set; }
+        public Chapter CurrentChapter { get; }
 
         private void DownloadForm_Load(object sender, EventArgs e)
         {
@@ -46,21 +46,20 @@ namespace KomicBuddy
 
         private string GetLink(int page)
         {
-            return String.Format("{0}{1}.jpg", _link, page.ToString("00"));
+            return $"{_link}{page.ToString("00")}.jpg";
         }
 
         private string GetPath(int page)
         {
-            return Path.Combine(_directory, string.Format("{0}.jpg", page.ToString("00")));
+            return Path.Combine(_directory, $"{page.ToString("00")}.jpg");
         }
 
-        private void LogError(string errorPosition,string error)
+        private void LogError(string errorPosition, string error)
         {
             if (Profile.Settings.LogErrors)
             {
                 File.AppendAllText(Path.Combine(_directory, "log.txt"),
-                                   string.Format("[{0}]\r\n{1}\r\nError: {2}\r\n-----------------\r\n", DateTime.Now.ToShortTimeString(),
-                                                 errorPosition,error));
+                    $"[{DateTime.Now.ToShortTimeString()}]\r\n{errorPosition}\r\nError: {error}\r\n-----------------\r\n");
             }
         }
 
@@ -78,54 +77,53 @@ namespace KomicBuddy
             }
             catch (Exception ex)
             {
-                LogError("Error occured while gathering information.",ex.Message);
+                LogError("Error occured while gathering information.", ex.Message);
                 goto DONE;
             }
-            
+
             for (var page = 1; page <= _pages; page++)
             {
-                download.Invoke(new Action<int, int>((current, total) =>
-                    {
-                        download.Text = string.Format("Downloading {0} of {1}", current, total);
-                    }),page,_pages);
+                download.Invoke(
+                    new Action<int, int>(
+                        (current, total) => { download.Text = $"Downloading {current} of {total}"; }),
+                    page, _pages);
                 var rTime = 0;
                 RETRY:
                 try
                 {
                     if (!(Profile.Settings.Resume && File.Exists(GetPath(page))))
                     {
-
-
                         if (rTime <= Profile.Settings.Retries)
                         {
                             Http.Download(GetLink(page), GetPath(page));
                         }
                         else
                         {
-                            LogError("Error occured while downloading the image","Unable to download within given number of retries.");
+                            LogError("Error occured while downloading the image",
+                                "Unable to download within given number of retries.");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    LogError("Error occured while downloading the image",ex.Message);
+                    LogError("Error occured while downloading the image", ex.Message);
                     rTime++;
                     goto RETRY;
                 }
 
                 Invoke(new Action<int>(progress =>
-                    {
-                        Tag.Text = string.Format(ProgressFormat, CurrentChapter.Name, progress);
-                        Text = string.Format(ProgressFormat, CurrentChapter.Name, progress);
-                        progressBar.Value = progress;
-                    }),(int)(((double)page/_pages)*100));
+                {
+                    Tag.Text = string.Format(ProgressFormat, CurrentChapter.Name, progress);
+                    Text = string.Format(ProgressFormat, CurrentChapter.Name, progress);
+                    progressBar.Value = progress;
+                }), (int) ((double) page/_pages*100));
             }
 
             if (Profile.Settings.CreatePdf)
             {
                 try
                 {
-                    using (var pdf=new pdfDocument(CurrentChapter.Name,"Abdullah Saleem"))
+                    using (var pdf = new pdfDocument(CurrentChapter.Name, "Abdullah Saleem"))
                     {
                         for (var page = 1; page <= _pages; page++)
                         {
@@ -133,7 +131,7 @@ namespace KomicBuddy
 
                             if (!File.Exists(file))
                             {
-                                LogError("Error occured while creating the PDF","File not found.");
+                                LogError("Error occured while creating the PDF", "File not found.");
                                 continue;
                             }
 
@@ -156,7 +154,6 @@ namespace KomicBuddy
                             Process.Start(pdfPath);
                         }
                     }
-
                 }
                 catch (Exception ex)
                 {
@@ -172,13 +169,13 @@ namespace KomicBuddy
 
                     if (!File.Exists(file))
                     {
-                        LogError("Error occured while deleting the images","Image not found.");
+                        LogError("Error occured while deleting the images", "Image not found.");
                         continue;
                     }
 
                     try
                     {
-                       File.Delete(file);
+                        File.Delete(file);
                     }
                     catch (Exception ex)
                     {
@@ -186,7 +183,7 @@ namespace KomicBuddy
                     }
                 }
             }
-        DONE:
+            DONE:
             Invoke(new MethodInvoker(Close));
         }
 
